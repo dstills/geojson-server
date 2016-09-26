@@ -9,14 +9,15 @@ var featuresSchema = new Schema({
 		coordinates: [Number],
 		bbox: [Number]
 	},
-	properties: Schema.Types.Mixed
+	properties: {
+    name: { type: String, required: true },
+    category: { type: String, required: true },
+    description: String
+  },
+  spatialReference: Number
+}, {
+  timestamps: true
 });
-
-// var featuresSchema = new Schema({
-// 	type: { type: String, required: true },
-// 	coordinates: [Number],
-// 	bbox: [Number]
-// });
 
 var Features = mongoose.model('Features', featuresSchema);
 

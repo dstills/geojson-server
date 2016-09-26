@@ -1,16 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-// var GeoStore = require('terraformer-geostore').GeoStore;
-// var RTree = require('terraformer-rtree').RTree;
-// var LevelStore = require('terraformer-geostore-leveldb');
 var cors = require('cors');
 var Features = require('../models/features');
-
-// var store = new GeoStore({
-//   store: new LevelStore(),
-//   index: new RTree()
-// });
 
 var featureRouter = express.Router();
 featureRouter.use(bodyParser.json());
