@@ -1,21 +1,22 @@
 var mongoose = require('mongoose');
+var GeoJSON = require('mongoose-geojson-schema');
 var Schema = mongoose.Schema;
 
-var featureSchema = new Schema({
-  geometry: {
-    'type': { type: String, default: 'Point' },
-    coordinates: [Number, Number]
-  },
-  properties: Schema.Types.Mixed
+var featuresSchema = new Schema({
+	type: { type: String, required: true },
+	geometry: {
+		type: { type: String, required: true },
+		coordinates: [Number],
+		bbox: [Number]
+	},
+	properties: Schema.Types.Mixed
 });
 
-var featuresSchema = new Schema({
-  'type': { type: String, default: 'FeatureCollection', required: false },
-  name: { type: String, default: '', required: false },
-  features: [ featureSchema ]
-}, {
-  timestamps: true
-});
+// var featuresSchema = new Schema({
+// 	type: { type: String, required: true },
+// 	coordinates: [Number],
+// 	bbox: [Number]
+// });
 
 var Features = mongoose.model('Features', featuresSchema);
 
