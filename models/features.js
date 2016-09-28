@@ -13,8 +13,7 @@ var featuresSchema = new Schema({
     name: { type: String, required: true },
     category: { type: String, required: true },
     description: String
-  },
-  spatialReference: Number
+  }
 }, {
   timestamps: true
 });
